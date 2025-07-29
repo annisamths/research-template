@@ -2,21 +2,12 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
     "name": "OpenSAFELY",
-    "image": "ghcr.io/opensafely-core/research-template:v0",
+    "image": "mcr.microsoft.com/devcontainers/python:3.10",
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
-    "postCreateCommand": "/bin/bash /opt/devcontainer/postCreate.sh ${containerWorkspaceFolder}",
-    "postAttachCommand": "/bin/bash /opt/devcontainer/postAttach.sh",
-    "forwardPorts": [
-        8787
-    ],
-    "portsAttributes": {
-        "8787": {
-            "label": "RStudio IDE"
-        }
-    },
+    "postAttachCommand": "/bin/bash .devcontainer/postAttach.sh",
     // Configure tool-specific properties.
     "customizations": {
         "codespaces": {
@@ -40,8 +31,8 @@
                 "files.autoSave": "afterDelay",
                 "files.autoSaveDelay": 1000,
                 "git.autofetch": true,
-                "python.analysis.extraPaths": [".devcontainer/ehrql-main/"],
-                "python.defaultInterpreterPath": "/opt/venv/bin/python",
+                "python.analysis.extraPaths": [".ehrql/"],
+                // "python.defaultInterpreterPath": "/opt/venv/bin/python",
                 "python.terminal.activateEnvInCurrentTerminal": true,
                 "python.terminal.activateEnvironment": true,
                 "window.autoDetectColorScheme": true
