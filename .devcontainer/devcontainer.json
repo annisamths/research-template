@@ -8,6 +8,7 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "postAttachCommand": "/bin/bash .devcontainer/postAttach.sh",
+    "containerEnv": {"R_LD_LIBRARY_PATH":"/usr/lib/R-system"},
     // Configure tool-specific properties.
     "customizations": {
         "codespaces": {
@@ -32,7 +33,7 @@
                 "files.autoSaveDelay": 1000,
                 "git.autofetch": true,
                 "python.analysis.extraPaths": [".ehrql/"],
-                // "python.defaultInterpreterPath": "/opt/venv/bin/python",
+                "python.defaultInterpreterPath": "/opt/venv/bin/python3.10",
                 "python.terminal.activateEnvInCurrentTerminal": true,
                 "python.terminal.activateEnvironment": true,
                 "window.autoDetectColorScheme": true
