@@ -2,13 +2,21 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
     "name": "OpenSAFELY",
-    "image": "mcr.microsoft.com/devcontainers/python:3.10",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
+    "postCreateCommand": "/bin/bash .devcontainer/postCreate.sh",
     "postAttachCommand": "/bin/bash .devcontainer/postAttach.sh",
-    "containerEnv": {"R_LD_LIBRARY_PATH":"/usr/lib/R-system"},
+    "forwardPorts": [
+        8787
+    ],
+    "portsAttributes": {
+        "8787": {
+            "label": "RStudio IDE"
+        }
+    },
     // Configure tool-specific properties.
     "customizations": {
         "codespaces": {
@@ -33,7 +41,7 @@
                 "files.autoSaveDelay": 1000,
                 "git.autofetch": true,
                 "python.analysis.extraPaths": [".ehrql/"],
-                "python.defaultInterpreterPath": "/opt/venv/bin/python3.10",
+                "python.defaultInterpreterPath": "./venv/bin/python",
                 "python.terminal.activateEnvInCurrentTerminal": true,
                 "python.terminal.activateEnvironment": true,
                 "window.autoDetectColorScheme": true
